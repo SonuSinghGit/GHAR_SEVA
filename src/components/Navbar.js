@@ -32,25 +32,24 @@ const Navbar = () => {
               Home
             </Link>
             <Link 
-              href="/service" 
+              href="/services" 
               className="text-white hover:text-blue-600 font-medium transition-colors text-sm md:text-base"
             >
               Service
             </Link>
             <Link 
-              href="/about" 
+              href="/about-us" 
               className="text-white hover:text-blue-600 font-medium transition-colors text-sm md:text-base"
             >
               About
             </Link>
             <Link 
-              href="/testimonial" 
+              href="/book-now" 
               className="text-white hover:text-blue-600 font-medium transition-colors text-sm md:text-base"
             >
               Book Now
             </Link>
           </div>
-
           {/* Book Now Button - Right side */}
           <div className="flex items-center">
             <Link 
