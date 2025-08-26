@@ -10,7 +10,7 @@ function Footer() {
         <div className="space-y-3">
           <h3 className="text-xl font-bold">Dr. Iphone Repair</h3>
           <p className="text-gray-300 text-sm">
-            We, Dr. Iphone Repair situated at Dwarka Sector 7, Delhi, are leading service providers providing various services such as mobile damage and others.
+            We, Ghar Seva situated at Siwan (Bihar) are leading service providers providing various services Which Is Very Helpful to get your life Easy.
           </p>
           <div className="flex space-x-3">
             <a href="#" className="text-gray-300 hover:text-blue-400 transition">
@@ -33,9 +33,9 @@ function Footer() {
           <h3 className="text-xl font-bold">Useful Links</h3>
           <ul className="space-y-1">
             <li><Link href="/about" className="text-gray-300 hover:text-white transition text-sm">About Us</Link></li>
-            <li><Link href="/services" className="text-gray-300 hover:text-white transition text-sm">Mobile Services</Link></li>
-            <li><Link href="/brands" className="text-gray-300 hover:text-white transition text-sm">Brands We Service</Link></li>
-            <li><Link href="/blogs" className="text-gray-300 hover:text-white transition text-sm">Blog</Link></li>
+            <li><Link href="/services" className="text-gray-300 hover:text-white transition text-sm">Services We Provide</Link></li>
+            <li><Link href="/brands" className="text-gray-300 hover:text-white transition text-sm">Contact Us</Link></li>
+            <li><Link href="/blogs" className="text-gray-300 hover:text-white transition text-sm">Blogs</Link></li>
           </ul>
         </div>
 
@@ -74,10 +74,10 @@ function Footer() {
 
       {/* Copyright */}
       <div className="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400 text-sm">
-        <p>&copy; {new Date().getFullYear()} Dr. Iphone. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Ghar Seva. All rights reserved.</p>
       </div>
       <div className='text-sm'>
-        **All product names, logos, and brands are the property of their respective owners. All company, product and service names used in this website are for identification purposes only. Use of these names, logos, and brands does not imply endorsement. Dr. Iphone Repair is a third-party repair company and is not affiliated with any brand listed on our website
+        **All product names, logos, and brands are the property of their respective owners. All company, product and service names used in this website are for identification purposes only. Use of these names, logos, and brands does not imply endorsement. GHAR SEVA is a delivery company and is not affiliated with any brand listed on our website
       </div>
     </footer>
   );
