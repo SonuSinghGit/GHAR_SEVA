@@ -8,9 +8,9 @@ function Footer() {
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {/* Company Info */}
         <div className="space-y-3">
-          <h3 className="text-xl font-bold">Dr. Iphone Repair</h3>
+          <h3 className="text-xl font-bold">Ghar Seva</h3>
           <p className="text-gray-300 text-sm">
-            We, Ghar Seva situated at Siwan (Bihar) are leading service providers providing various services Which Is Very Helpful to get your life Easy.
+            We, Ghar Seva lightning fast Service Provider situated at Siwan (Bihar) are leading service providers providing various services Which Is Very Helpful to get your life Easy.
           </p>
           <div className="flex space-x-3">
             <a href="#" className="text-gray-300 hover:text-blue-400 transition">
