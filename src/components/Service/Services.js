@@ -1,17 +1,20 @@
 "use client";
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import FeatureServices from './FeatureServices';
+import StatsSection from './StatsSection';
 
 function Services() {
+  const router = useRouter();
   // State for search functionality
   const [searchTerm, setSearchTerm] = useState('');
   
   // Services data
   const services = [
     { name: "AC Repair & Service", category: "Appliances" },
-    { name: "Home Painting", category: "Home Improvement" },
-    { name: "Wall Panels", category: "Home Improvement" },
+    { name: "Food Delivery", category: "Home Improvement" },
+    { name: "Grocery Delivery", category: "Home Improvement" },
     { name: "Partial Home Painting Consult", category: "Consultation" },
     { name: "Disinfection Services", category: "Cleaning" },
     { name: "Microwave Video Consult", category: "Consultation" },
@@ -23,7 +26,7 @@ function Services() {
     { name: "Nail Studio For Women", category: "Beauty" },
     { name: "Laser Hair Reduction", category: "Beauty" },
     { name: "Bed Bugs Control", category: "Pest Control" },
-    { name: "Few Rooms & Walls", category: "Home Improvement" },
+    { name: "Hotels & Rooms Book", category: "Home Improvement" },
     { name: "Chimney Repair & Service", category: "Appliances" },
     { name: "Geyser Repair & Service", category: "Plumbing" },
     { name: "Furniture Assembly", category: "Home Improvement" },
@@ -83,27 +86,10 @@ function Services() {
     return matchesSearch && matchesCategory;
   });
 
- 
-
-  // Testimonials
-  const testimonials = [
-    {
-      text: "I am happy with DoorStepIndia. Technician arrived before the scheduled time and finished the work in half an hour. Thank you very much!",
-      author: "Deepti Arora"
-    },
-    {
-      text: "Good work quality. I highly recommend DoorStepIndia for professional and quality services.",
-      author: "Nilesh Jha"
-    },
-    {
-      text: "First time using DoorStepIndia and I am very satisfied. The service was excellent and the staff were very helpful.",
-      author: "Keeti Singh"
-    },
-    {
-      text: "Unprecedented service! In every positive sense of the word, DoorStepIndia exceeded my expectations.",
-      author: "Neha Sahay"
-    }
-  ];
+  // Function to handle booking
+  const handleBookService = (serviceName) => {
+    router.push(`/book-service?service=${encodeURIComponent(serviceName)}`);
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -156,43 +142,22 @@ function Services() {
             {filteredServices.map((service, index) => (
               <div key={index} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
                 <h3 className="font-semibold text-lg mb-2">{service.name}</h3>
-                <span className="inline-block bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">
+                <span className="inline-block bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full mb-4">
                   {service.category}
                 </span>
+                <button 
+                  onClick={() => handleBookService(service.name)}
+                  className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition"
+                >
+                  Book Service
+                </button>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-
-      {/* Stats Section */}
-      <section className="py-12 px-4 bg-blue-600 text-white">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">Every customer hires DoorStepIndia As Its Service Partner Every 24.2 Seconds</h2>
-          <p className="mb-8">*As per the previous year data.</p>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div>
-              <div className="text-4xl font-bold mb-2">1M+</div>
-              <p>Clients</p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">50+</div>
-              <p>Services</p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">2000+</div>
-              <p>Experts</p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">4.8/5</div>
-              <p>Rating</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <StatsSection/>
       <FeatureServices/>
 
       {/* CTA Section */}
@@ -206,7 +171,6 @@ function Services() {
           </button>
         </div>
       </section>
-
     </div>
   );
 }

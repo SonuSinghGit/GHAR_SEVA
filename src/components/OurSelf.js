@@ -31,13 +31,13 @@ function OurSelf() {
         </div>
         <div className="md:w-1/2 flex justify-center">
           <div className="relative w-full max-w-md">
-            <div className="absolute -top-6 -left-6 w-32 h-32 bg-indigo-600 rounded-full opacity-20 animate-pulse"></div>
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-pink-600 rounded-full opacity-20 animate-pulse"></div>
+            <div className="absolute -top-6 -left-6 w-40 h-40 bg-indigo-600 rounded-full opacity-20 animate-pulse"></div>
+            <div className="absolute -bottom-6 -right-6 w-40 h-40 bg-pink-600 rounded-full opacity-20 animate-pulse"></div>
             <div className="relative bg-white p-2 rounded-2xl shadow-xl">
               <img 
-                src="/api/placeholder/500/400" 
+                src="/images/images.png" 
                 alt="Doorstep Service" 
-                className="rounded-xl w-full h-auto"
+                className="rounded-xl w-full h-60"
               />
             </div>
           </div>

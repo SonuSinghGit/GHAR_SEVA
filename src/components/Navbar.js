@@ -44,10 +44,10 @@ const Navbar = () => {
               About
             </Link>
             <Link 
-              href="/book-now" 
+              href="/become-partner" 
               className="text-white hover:text-blue-600 font-medium transition-colors text-sm md:text-base"
             >
-              Book Now
+              Become Partner
             </Link>
           </div>
           {/* Book Now Button - Right side */}

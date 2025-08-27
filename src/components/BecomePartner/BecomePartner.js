@@ -1,6 +1,6 @@
 import React from 'react'
 
-function BookNow() {
+function BecomePartner() {
   return (
     <div>
       This is Book Now Page
@@ -8,4 +8,4 @@ function BookNow() {
   )
 }
 
-export default BookNow
+export default BecomePartner;
