@@ -3,7 +3,7 @@ import React from 'react'
 function BecomePartner() {
   return (
     <div>
-      This is Book Now Page
+      This is become partner page
     </div>
   )
 }
