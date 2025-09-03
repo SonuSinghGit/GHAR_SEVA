@@ -13,12 +13,12 @@ const Navbar = () => {
               href="/" 
               className="text-lg sm:text-xl md:text-2xl font-bold text-white hover:text-blue-600 transition-colors whitespace-nowrap"
             >
-              Ghar Seva
+            SEVA EXPRESS
             </Link>
             <div className="hidden sm:flex items-center">
               <span className="h-6 w-px bg-gray-400"></span>
               <span className="ml-2 sm:ml-4 text-gray-400 text-xs sm:text-sm whitespace-nowrap">
-                Third party Service provider
+                DoorStep Service provider
               </span>
             </div>
           </div>
