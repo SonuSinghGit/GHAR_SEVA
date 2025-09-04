@@ -84,7 +84,7 @@ function AboutUs() {
         <div className="absolute inset-0 bg-black opacity-40"></div>
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">About DoorStep Service</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">About <span className='text-yellow-300'> SEVA EXPRESS </span> DoorStep Service</h1>
             <p className="text-xl max-w-3xl mx-auto">
               Your trusted partner for all doorstep services in Eastern Uttar Pradesh
             </p>

@@ -1,247 +1,206 @@
-"use client";
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import Head from 'next/head';
 
-function Location() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  
-  const onSubmit = (data) => {
-    console.log(data);
-    // Here you would typically send the data to your backend or email service
-    alert('Thank you for your message! We will get back to you soon.');
-  };
-
+function OurSelf() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section - Reduced height */}
-      <div className="bg-blue-700 text-white py-12">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-3xl font-bold mb-3">Contact Us</h1>
-          <p className="text-lg max-w-2xl mx-auto">
-            Get in touch with us for any queries or service requests. We're here to help!
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      <Head>
+        <title>GharSEVA - Your Doorstep Service Provider</title>
+        <meta name="description" content="Professional doorstep services including food delivery, electronics repair, AC servicing, technicians, and daily needs" />
+      </Head>
+
+    
+      {/* Hero Section */}
+      <section className="container mx-auto px-4 py-16 md:py-24 flex flex-col md:flex-row items-center">
+        <div className="md:w-1/2 mb-10 md:mb-0">
+          <h1 className="text-4xl md:text-5xl font-bold text-black800 leading-tight mb-6">
+          <spna className="text-amber-500"> SEVA EXPRESS </spna>  Professional Services Provider <span className="text-indigo-600">At Your Doorstep</span>
+          </h1>
+          <p className="text-black600 text-lg mb-8">
+            From food delivery to appliance repair, GharSEVA brings expert services right to your home. 
+            Experience convenience, quality, and reliability with just a few clicks.
           </p>
-        </div>
-      </div>
-
-      <div className="container mx-auto px-4 py-8">
-        {/* Flex container for equal height sections */}
-        <div className="flex flex-col lg:flex-row gap-6 items-stretch">
-          {/* Contact Form - Reduced padding and spacing */}
-          <div className="flex-1 bg-white rounded-lg shadow-md p-5">
-            <h2 className="text-xl font-bold mb-4 text-gray-800">Send us a Message</h2>
-            
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 h-full flex flex-col">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
-                    First Name *
-                  </label>
-                  <input
-                    id="firstName"
-                    type="text"
-                    {...register("firstName", { required: "First name is required" })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-                  />
-                  {errors.firstName && (
-                    <p className="mt-1 text-xs text-red-600">{errors.firstName.message}</p>
-                  )}
-                </div>
-
-                <div>
-                  <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">
-                    Last Name *
-                  </label>
-                  <input
-                    id="lastName"
-                    type="text"
-                    {...register("lastName", { required: "Last name is required" })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-                  />
-                  {errors.lastName && (
-                    <p className="mt-1 text-xs text-red-600">{errors.lastName.message}</p>
-                  )}
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                  Email Address *
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  {...register("email", { 
-                    required: "Email is required",
-                    pattern: {
-                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: "Invalid email address"
-                    }
-                  })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-                />
-                {errors.email && (
-                  <p className="mt-1 text-xs text-red-600">{errors.email.message}</p>
-                )}
-              </div>
-
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                  Phone Number
-                </label>
-                <input
-                  id="phone"
-                  type="tel"
-                  {...register("phone")}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                  Subject *
-                </label>
-                <select
-                  id="subject"
-                  {...register("subject", { required: "Please select a subject" })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-                >
-                  <option value="">Select a subject</option>
-                  <option value="service-request">Service Request</option>
-                  <option value="general-inquiry">General Inquiry</option>
-                  <option value="complaint">Complaint</option>
-                  <option value="partnership">Partnership</option>
-                  <option value="other">Other</option>
-                </select>
-                {errors.subject && (
-                  <p className="mt-1 text-xs text-red-600">{errors.subject.message}</p>
-                )}
-              </div>
-
-              <div className="flex-grow">
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                  Message *
-                </label>
-                <textarea
-                  id="message"
-                  rows={3}
-                  {...register("message", { required: "Message is required" })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-full min-h-[80px]"
-                ></textarea>
-                {errors.message && (
-                  <p className="mt-1 text-xs text-red-600">{errors.message.message}</p>
-                )}
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors font-medium text-sm mt-2"
-              >
-                Send Message
-              </button>
-            </form>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <button className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition-colors">
+              Explore Services
+            </button>
+            <button className="border border-indigo-600 text-indigo-600 px-6 py-3 rounded-lg font-medium hover:bg-indigo-50 transition-colors">
+              Download App
+            </button>
           </div>
-
-          {/* Map and Contact Info - Reduced spacing and padding */}
-          <div className="flex-1 flex flex-col gap-5">
-            {/* Map - Reduced height */}
-            <div className="bg-white rounded-lg shadow-md overflow-hidden flex-1 flex flex-col">
-              <h2 className="text-xl font-bold p-4 text-gray-800">Our Location</h2>
-              <div className="px-4 pb-4 flex-1">
-                <div className="h-full bg-gray-200 rounded-lg overflow-hidden">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.102257667909!2d83.373614575997!3d26.84181716263075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3991446a351d59a7%3A0x679ff7f23523115b!2sGorakhpur%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1691592345678!5m2!1sen!2sin"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0, minHeight: '200px' }}
-                    allowFullScreen=""
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Our Location in Gorakhpur"
-                  ></iframe>
-                </div>
-              </div>
-            </div>
-
-            {/* Contact Information - Reduced padding */}
-            <div className="bg-white rounded-lg shadow-md p-5">
-              <h2 className="text-xl font-bold mb-4 text-gray-800">Contact Information</h2>
-              
-              <div className="space-y-3">
-                <div className="flex items-start">
-                  <div className="bg-blue-100 p-2 rounded-full mr-3">
-                    <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 11111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-800 text-sm">Address</h3>
-                    <p className="text-gray-600 text-sm">123 Service Road, Gorakhpur, Uttar Pradesh 273001</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="bg-blue-100 p-2 rounded-full mr-3">
-                    <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-800 text-sm">Phone</h3>
-                    <p className="text-gray-600 text-sm">+91 98765 43210</p>
-                    <p className="text-gray-600 text-sm">+91 91234 56789</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="bg-blue-100 p-2 rounded-full mr-3">
-                    <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-800 text-sm">Email</h3>
-                    <p className="text-gray-600 text-sm">info@doorstepservice.com</p>
-                    <p className="text-gray-600 text-sm">support@doorstepservice.com</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="bg-blue-100 p-2 rounded-full mr-3">
-                    <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-800 text-sm">Business Hours</h3>
-                    <p className="text-gray-600 text-sm">Monday - Saturday: 8:00 AM - 8:00 PM</p>
-                    <p className="text-gray-600 text-sm">Sunday: 9:00 AM - 6:00 PM</p>
-                  </div>
-                </div>
-              </div>
+        </div>
+        <div className="md:w-1/2 flex justify-center">
+          <div className="relative w-full max-w-md">
+            <div className="absolute -top-6 -left-6 w-40 h-40 bg-indigo-600 rounded-full opacity-20 animate-pulse"></div>
+            <div className="absolute -bottom-6 -right-6 w-40 h-40 bg-pink-600 rounded-full opacity-20 animate-pulse"></div>
+            <div className="relative bg-white p-2 rounded-2xl shadow-xl">
+              <img 
+                src="/images/images.png" 
+                alt="Doorstep Service" 
+                className="rounded-xl w-full h-60"
+              />
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Service Areas Banner - Reduced padding */}
-      <div className="bg-blue-50 py-8 mt-8">
+      {/* Services Section */}
+      <section className="bg-white py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">Areas We Serve</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
-            {['Gorakhpur', 'Siwan', 'Deoria', 'Maharajganj'].map((city, index) => (
-              <div key={index} className="bg-white p-3 rounded-lg shadow-sm">
-                <div className="font-medium text-blue-700 text-sm">{city}</div>
-              </div>
-            ))}
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-black800 mb-2">Our Services</h2>
+            <p className="text-black max-w-6xl mx-auto text-2xl">
+              We offer a wide range of services to make your life easier. All services are provided by verified professionals.
+            </p>
           </div>
-          <p className="text-center mt-4 text-gray-600 text-sm">
-            We're expanding to more cities soon!
-          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Service Card 1 */}
+            <div className="bg-yellow-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
+              <div className="bg-green-200 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-black800 mb-2">Food Delivery</h3>
+              <p className="text-black600">
+                Get your favorite meals from top restaurants delivered right to your doorstep, hot and fresh.
+              </p>
+            </div>
+
+            {/* Service Card 2 */}
+            <div className="bg-yellow-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
+              <div className="bg-green-200 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-black800 mb-2">Electronics Repair</h3>
+              <p className="text-black600">
+                Expert technicians for all your electronic device repairs - phones, laptops, TVs, and more.
+              </p>
+            </div>
+
+            {/* Service Card 3 */}
+            <div className="bg-yellow-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
+              <div className="bg-green-200 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-black800 mb-2">AC Services</h3>
+              <p className="text-black600">
+                Professional AC installation, maintenance, and repair services to keep you cool all year round.
+              </p>
+            </div>
+
+            {/* Service Card 4 */}
+            <div className="bg-yellow-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
+              <div className="bg-pugreen-200 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-black800 mb-2">Technician Services</h3>
+              <p className="text-black600">
+                Skilled technicians for plumbing, electrical, appliance repair, and other household needs.
+              </p>
+            </div>
+
+            {/* Service Card 5 */}
+            <div className="bg-yellow-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
+              <div className="bg-yegreen-200 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-black800 mb-2">Daily Needs</h3>
+              <p className="text-black600">
+                Groceries, medicines, and other daily essentials delivered to your home quickly and reliably.
+              </p>
+            </div>
+
+            {/* Service Card 6 */}
+            <div className="bg-yellow-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
+              <div className="bg-green-200 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-pink-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-black800 mb-2">Home Cleaning</h3>
+              <p className="text-black600">
+                Professional home cleaning services to keep your living space sparkling clean and hygienic.
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="py-12 bg-green-200">
+        <div className="container max-w-7xl mx-auto px-4 ">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">How It Works</h2>
+            <p className="text-black max-w-2xl mx-auto">
+              Getting services at your doorstep has never been easier. Just follow these simple steps.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-md">
+                <span className="text-3xl font-bold text-indigo-600">1</span>
+              </div>
+              <h3 className="text-xl font-semibold text-black mb-2">Book a Service</h3>
+              <p className="text-black">
+                Select from our wide range of services and book through our app, website, or phone call.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-md">
+                <span className="text-3xl font-bold text-indigo-600">2</span>
+              </div>
+              <h3 className="text-xl font-semibold text-black mb-2">Confirm Professional</h3>
+              <p className="text-black">
+                We'll match you with a verified professional and share their details before they arrive.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-md">
+                <span className="text-3xl font-bold text-indigo-600">3</span>
+              </div>
+              <h3 className="text-xl font-semibold text-black mb-2">Enjoy the Service</h3>
+              <p className="text-black">
+                Relax while our expert provides quality service at your doorstep. Payment is easy and secure.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-indigo-600 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to experience convenience?</h2>
+          <p className="text-indigo-100 max-w-2xl mx-auto mb-8">
+            Download our app now and get all services at your fingertips with exclusive app-only offers.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <button className="bg-white text-indigo-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+              Download for iOS
+            </button>
+            <button className="bg-gray-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors">
+              Download for Android
+            </button>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }
 
-export default Location;
+export default OurSelf;

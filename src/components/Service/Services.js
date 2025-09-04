@@ -9,6 +9,8 @@ function Services() {
   const router = useRouter();
   // State for search functionality
   const [searchTerm, setSearchTerm] = useState('');
+  // State to track how many services to show
+  const [servicesToShow, setServicesToShow] = useState(20);
   
   // Services data
   const services = [
@@ -86,9 +88,22 @@ function Services() {
     return matchesSearch && matchesCategory;
   });
 
+  // Get services to display (first 20 or all if show more is clicked)
+  const servicesToDisplay = filteredServices.slice(0, servicesToShow);
+
   // Function to handle booking
   const handleBookService = (serviceName) => {
     router.push(`/book-service?service=${encodeURIComponent(serviceName)}`);
+  };
+
+  // Function to show more services
+  const showMoreServices = () => {
+    setServicesToShow(filteredServices.length);
+  };
+
+  // Function to reset to initial view
+  const showLessServices = () => {
+    setServicesToShow(20);
   };
 
   return (
@@ -130,16 +145,26 @@ function Services() {
               <button
                 key={category}
                 className={`px-4 py-2 rounded-full ${selectedCategory === category ? 'bg-blue-600 text-white' : 'bg-gray-200 text-black hover:bg-gray-300'}`}
-                onClick={() => setSelectedCategory(category)}
+                onClick={() => {
+                  setSelectedCategory(category);
+                  setServicesToShow(20); // Reset to initial view when category changes
+                }}
               >
                 {category}
               </button>
             ))}
           </div>
           
+          {/* Services Count */}
+          <div className="text-center mb-6">
+            <p className="text-gray-600">
+              Showing {servicesToDisplay.length} of {filteredServices.length} services
+            </p>
+          </div>
+          
           {/* Services Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {filteredServices.map((service, index) => (
+            {servicesToDisplay.map((service, index) => (
               <div key={index} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
                 <h3 className="font-semibold text-lg mb-2">{service.name}</h3>
                 <span className="inline-block bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full mb-4">
@@ -154,6 +179,27 @@ function Services() {
               </div>
             ))}
           </div>
+
+          {/* Show More/Less Button */}
+          {filteredServices.length > 20 && (
+            <div className="text-center mt-8">
+              {servicesToShow < filteredServices.length ? (
+                <button 
+                  onClick={showMoreServices}
+                  className="bg-blue-600 text-white py-2 px-6 rounded-md hover:bg-blue-700 transition"
+                >
+                  Show More Services ({filteredServices.length - servicesToShow} more)
+                </button>
+              ) : (
+                <button 
+                  onClick={showLessServices}
+                  className="bg-gray-600 text-white py-2 px-6 rounded-md hover:bg-gray-700 transition"
+                >
+                  Show Less
+                </button>
+              )}
+            </div>
+          )}
         </div>
       </section>
 
