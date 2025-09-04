@@ -80,7 +80,7 @@ function AboutUs() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-blue-600 to-purple-700 text-white">
+      <section className="relative py-20 bg-gradient-to-r from-yellow-400 to-green-400 text-white">
         <div className="absolute inset-0 bg-black opacity-40"></div>
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="text-center">
@@ -319,10 +319,10 @@ function AboutUs() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-100">
-              Book Now
+              <a href='/book-service'>Book Now </a>
             </button>
             <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700">
-              Contact Us
+              <a href='/services'>Contact Us </a>
             </button>
           </div>
         </div>
