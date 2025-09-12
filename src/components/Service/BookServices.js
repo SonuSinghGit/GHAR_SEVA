@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 function BookServices() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const serviceName = searchParams.get('service');
+  const serviceName = searchParams?.get('service') ||"";
   
   const [formData, setFormData] = useState({
     name: '',
