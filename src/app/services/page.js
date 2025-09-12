@@ -1,3 +1,4 @@
+"use-client"
 import Services from "@/components/Service/Services";
 
 const ServicePage= ()=>{

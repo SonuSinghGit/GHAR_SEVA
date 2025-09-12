@@ -1,3 +1,4 @@
+"use-client"
 import BookServices from "@/components/Service/BookServices";
 
 const BookServicePage = () => {
